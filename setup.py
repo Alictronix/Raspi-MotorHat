@@ -11,5 +11,6 @@ setup(
     install_requires=[
         'smbus',
     ],
-    packages=find_packages()
+    packages=find_packages(),
+    python_requires='>=3.5, <4',
 )
