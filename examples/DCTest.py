@@ -21,38 +21,38 @@ myMotor = mh.getMotor(3)
 
 # set the speed to start, from 0 (off) to 255 (max speed)
 myMotor.setSpeed(150)
-myMotor.run(Raspi_MotorHAT.FORWARD);
+myMotor.run(Raspi_MotorHAT.FORWARD)
 # turn on motor
-myMotor.run(Raspi_MotorHAT.RELEASE);
+myMotor.run(Raspi_MotorHAT.RELEASE)
 
 
 while (True):
-	print "Forward! "
+	print("Forward! ")
 	myMotor.run(Raspi_MotorHAT.FORWARD)
 
-	print "\tSpeed up..."
+	print("\tSpeed up...")
 	for i in range(255):
 		myMotor.setSpeed(i)
 		time.sleep(0.01)
 
-	print "\tSlow down..."
+	print("\tSlow down...")
 	for i in reversed(range(255)):
 		myMotor.setSpeed(i)
 		time.sleep(0.01)
 
-	print "Backward! "
+	print("Backward! ")
 	myMotor.run(Raspi_MotorHAT.BACKWARD)
 
-	print "\tSpeed up..."
+	print("\tSpeed up...")
 	for i in range(255):
 		myMotor.setSpeed(i)
 		time.sleep(0.01)
 
-	print "\tSlow down..."
+	print("\tSlow down...")
 	for i in reversed(range(255)):
 		myMotor.setSpeed(i)
 		time.sleep(0.01)
 
-	print "Release"
+	print("Release")
 	myMotor.run(Raspi_MotorHAT.RELEASE)
 	time.sleep(1.0)
