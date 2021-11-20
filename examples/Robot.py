@@ -6,7 +6,7 @@
 import time
 import atexit
 
-from Raspi_MotorHAT import Raspi_MotorHAT, Raspi_DCMotor
+from RaspiMotorHat.Raspi_MotorHAT import Raspi_MotorHAT, Raspi_DCMotor
 
 
 # from Adafruit_MotorHAT import Adafruit_MotorHAT
