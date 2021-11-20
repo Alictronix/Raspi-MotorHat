@@ -92,24 +92,24 @@ class Raspi_StepperMotor:
 
             pwm_a = pwm_b = 0
             if (self.currentstep >= 0) and (self.currentstep < self.MICROSTEPS):
-                pwm_a = self.MICROSTEP_CURVE[self.MICROSTEPS -
-                                             self.currentstep]
-                pwm_b = self.MICROSTEP_CURVE[self.currentstep]
+                pwm_a = self.MICROSTEP_CURVE[int(self.MICROSTEPS -
+                                             self.currentstep)]
+                pwm_b = self.MICROSTEP_CURVE[int(self.currentstep)]
             elif (self.currentstep >= self.MICROSTEPS) and (self.currentstep < self.MICROSTEPS*2):
-                pwm_a = self.MICROSTEP_CURVE[self.currentstep -
-                                             self.MICROSTEPS]
-                pwm_b = self.MICROSTEP_CURVE[self.MICROSTEPS *
-                                             2 - self.currentstep]
+                pwm_a = self.MICROSTEP_CURVE[int(self.currentstep -
+                                             self.MICROSTEPS)]
+                pwm_b = self.MICROSTEP_CURVE[int(self.MICROSTEPS *
+                                             2 - self.currentstep)]
             elif (self.currentstep >= self.MICROSTEPS*2) and (self.currentstep < self.MICROSTEPS*3):
-                pwm_a = self.MICROSTEP_CURVE[self.MICROSTEPS *
-                                             3 - self.currentstep]
-                pwm_b = self.MICROSTEP_CURVE[self.currentstep -
-                                             self.MICROSTEPS*2]
+                pwm_a = self.MICROSTEP_CURVE[int(self.MICROSTEPS *
+                                             3 - self.currentstep)]
+                pwm_b = self.MICROSTEP_CURVE[int(self.currentstep -
+                                             self.MICROSTEPS*2)]
             elif (self.currentstep >= self.MICROSTEPS*3) and (self.currentstep < self.MICROSTEPS*4):
-                pwm_a = self.MICROSTEP_CURVE[self.currentstep -
-                                             self.MICROSTEPS*3]
-                pwm_b = self.MICROSTEP_CURVE[self.MICROSTEPS *
-                                             4 - self.currentstep]
+                pwm_a = self.MICROSTEP_CURVE[int(self.currentstep -
+                                             self.MICROSTEPS*3)]
+                pwm_b = self.MICROSTEP_CURVE[int(self.MICROSTEPS *
+                                             4 - self.currentstep)]
 
         # go to next 'step' and wrap around
         self.currentstep += self.MICROSTEPS * 4
@@ -140,7 +140,7 @@ class Raspi_StepperMotor:
                           [0, 0, 1, 1],
                           [0, 0, 0, 1],
                           [1, 0, 0, 1]]
-            coils = step2coils[self.currentstep/(self.MICROSTEPS/2)]
+            coils = step2coils[int(self.currentstep/(self.MICROSTEPS/2))]
 
         # print "coils state = " + str(coils)
         self.MC.setPin(self.AIN2, coils[0])
@@ -160,7 +160,7 @@ class Raspi_StepperMotor:
             s_per_s /= self.MICROSTEPS
             steps *= self.MICROSTEPS
 
-        print s_per_s, " sec per step"
+        print("%f sec per step" % (s_per_s))
 
         for s in range(steps):
             lateststep = self.oneStep(direction, stepstyle)
