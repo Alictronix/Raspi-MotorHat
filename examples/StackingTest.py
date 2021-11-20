@@ -58,15 +58,15 @@ def stepper_worker(stepper, numsteps, direction, style):
 
 while (True):
     for i in range(3):
-        if not stepperThreads[i].isAlive():
+        if not stepperThreads[i].is_alive():
             randomdir = random.randint(0, 1)
-            print("Stepper %d" % i),
+            print("Stepper %d" % i)
             if (randomdir == 0):
                 dir = Raspi_MotorHAT.FORWARD
-                print("forward"),
+                print("forward")
             else:
                 dir = Raspi_MotorHAT.BACKWARD
-                print("backward"),
+                print("backward")
             randomsteps = random.randint(10, 50)
             print("%d steps" % randomsteps)
             stepperThreads[i] = threading.Thread(target=stepper_worker, args=(
