@@ -1,5 +1,5 @@
 #!/usr/bin/python
-from Raspi_MotorHAT import Raspi_MotorHAT, Raspi_DCMotor
+from RaspiMotorHat.Raspi_MotorHAT import Raspi_MotorHAT, Raspi_DCMotor
 
 import time
 import atexit

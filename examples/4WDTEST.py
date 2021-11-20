@@ -1,7 +1,7 @@
 #!/usr/bin/python
 from evdev import InputDevice , categorize, ecodes
 from select import select
-from Raspi_MotorHAT import Raspi_MotorHAT, Raspi_DCMotor
+from RaspiMotorHat.Raspi_MotorHAT import Raspi_MotorHAT, Raspi_DCMotor
 
 import atexit
 import time
