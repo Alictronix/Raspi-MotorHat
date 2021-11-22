@@ -10,6 +10,7 @@ setup(
     author_email='armjaz@gmail.com',
     install_requires=[
         'smbus',
+        'evdev'
     ],
     packages=find_packages(),
     python_requires='>=3.5, <4',
