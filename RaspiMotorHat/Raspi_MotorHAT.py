@@ -263,3 +263,9 @@ class Raspi_MotorHAT:
         if (num < 1) or (num > 4):
             raise NameError('MotorHAT Motor must be between 1 and 4 inclusive')
         return self.motors[num-1]
+
+    def turnOffMotors(self):
+        self.getMotor(1).run(Raspi_MotorHAT.RELEASE)
+        self.getMotor(2).run(Raspi_MotorHAT.RELEASE)
+        self.getMotor(3).run(Raspi_MotorHAT.RELEASE)
+        self.getMotor(4).run(Raspi_MotorHAT.RELEASE)
